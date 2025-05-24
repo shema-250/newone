@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Orpcare Secondary School</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #343a40;
+    }
+
+    header.top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #002d5a;
+      padding: 10px 20px;
+      color: white;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      height: 60px;
+    }
+
+    .title {
+      flex: 1;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .search-icon {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* Navbar styles */
+    nav.nav-bar {
+      background: #00509e;
+      position: relative;
+    }
+
+    .nav-bar .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: white;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .nav-bar ul {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 10px 20px;
+      justify-content: center;
+      transition: max-height 0.3s ease;
+    }
+
+    .nav-bar li {
+      margin: 10px 15px;
+    }
+
+    .nav-bar a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .nav-bar a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .apply-btn {
+      background-color: #ffc107;
+      padding: 8px 12px;
+      border-radius: 5px;
+      color: #002d5a;
+      font-weight: bold;
+    }
+
+    /* Slider */
+    .slider {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slider-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .slide {
+      min-width: 100%;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+    }
+
+    .btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      font-size: 30px;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .btn-left {
+      left: 10px;
+    }
+
+    .btn-right {
+      right: 10px;
+    }
+
+    /* Vision & Mission */
+    .vision-mission {
+      position: relative;
+      background: url('child.jpg') no-repeat center center/cover;
+      height: 300px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .vision-mission::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 45, 90, 0.8);
+      z-index: 1;
+    }
+
+    .vision-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      animation: fadeInUp 1s ease forwards;
+      padding: 0 20px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* About Section container flexbox */
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 40px 20px;
+      gap: 20px;
+    }
+
+    /* About Text Section */
+    .text-section {
+      flex: 1;
+      padding-right: 20px;
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: 0.2s;
+      margin-bottom: 20px;
+      font-size: 25px;
+      line-height: 1.8;
+      font-weight: 500;
+      text-align: justify;
+      min-width: 280px;
+    }
+
+    /* Image Section */
+    .image-section {
+      flex: 1 1 300px;
+      min-width: 280px;
+    }
+
+    .image-section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Program cards */
+    .card {
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      padding: 20px;
+      margin: 20px;
+      flex: 1 1 300px;
+      text-align: center;
+      transform: translateY(40px);
+      opacity: 0;
+      animation: fadeUp 1s ease-out forwards;
+      min-width: 280px;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    h2, h3 {
+      color: #002d5a;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #0056b3;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+
+    /* News Container */
+    .news-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 40px 20px;
+      gap: 20px;
+      transition: transform 0.3s ease;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .news-container .card {
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      padding: 20px;
+      flex: 1 1 calc(33.333% - 40px);
+      margin: 10px;
+      text-align: center;
+      transform: translateY(40px);
+      opacity: 0;
+      animation: fadeUp 1s ease-out forwards;
+      min-width: 280px;
+    }
+
+    /* Footer */
+    .footer {
+      background: #002d5a;
+      color: white;
+      padding: 40px 20px;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .footer-links, .footer-contact {
+      flex: 1 1 200px;
+      margin-bottom: 20px;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .footer-links ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-links ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 20px;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+      font-size: 14px;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 1024px) {
+      .news-container .card {
+        flex: 1 1 calc(50% - 40px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 20px 10px;
+      }
+
+      .text-section {
+        padding-right: 0;
+        font-size: 22px;
+      }
+
+      .image-section {
+        flex: none;
+        margin-top: 20px;
+      }
+
+      .container > .card {
+        flex: 1 1 100%;
+        max-width: 400px;
+        margin: 10px auto;
+      }
+
+      .nav-bar ul {
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        padding: 0;
+        background: #00509e;
+      }
+
+      .nav-bar ul.show {
+        max-height: 500px;
+        padding: 10px 0;
+      }
+
+      .nav-bar li {
+        margin: 10px 0;
+        text-align: center;
+      }
+
+      .nav-bar .menu-toggle {
+        display: block;
+      }
+
+      .title {
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo {
+        height: 50px;
+        margin-bottom: 10px;
+      }
+
+      header.top-bar {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .search-icon {
+        margin-top: 10px;
+      }
+
+      .title {
+        font-size: 16px;
+      }
+
+      .news-container .card {
+        flex: 1 1 100%;
+        max-width: 400px;
+        margin: 10px auto;
+      }
+
+      .vision-mission {
+        height: 250px;
+      }
+
+      .slide img {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-bar">
+    <img src="logo2.png" alt="School Logo" class="logo" />
+    <h1 class="title">ORPCARE SECONDARY SCHOOL</h1>
+    <div class="search-icon">🔍</div>
+  </header>
+
+  <nav class="nav-bar">
+    <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+    <ul id="navMenu">
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="admission.html">Admissions</a></li>
+      <li><a href="academics.html">Academics</a></li>
+      <li><a href="student.html">Student Life</a></li>
+      <li><a href="community.html">Community</a></li>
+      <li><a href="apply.html" class="apply-btn">APPLY NOW</a></li>
+    </ul>
+  </nav>
+
+  <!-- Slider -->
+  <div class="slider">
+    <div class="slider-track" id="sliderTrack">
+      <div class="slide"><img src="bulding 5.jpg" alt="Slide 1" /></div>
+      <div class="slide"><img src="child.jpg" alt="Slide 2" /></div>
+      <div class="slide"><img src="kid 4.jpg" alt="Slide 3" /></div>
+      <div class="slide"><img src="kid 5.jpg" alt="Slide 4" /></div>
+      <div class="slide"><img src="ggg.png" alt="Slide 5" /></div>
+    </div>
+    <button class="btn btn-left" onclick="moveSlide(-1)">❮</button>
+    <button class="btn btn-right" onclick="moveSlide(1)">❯</button>
+  </div>
+
+  <!-- Vision & Mission -->
+  <section class="vision-mission">
+    <div class="vision-content">
+      <h1>Our Vision</h1>
+      <h2>Raising generations of Christian Leaders</h2>
+      <h1>Our Mission</h1>
+      <p>
+        Raising the next generation in fear of God while providing holistic Christian education that promotes academic excellence and character development.
+      </p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <div class="container">
+    <div class="text-section">
+      <h2>About OPSS - K</h2>
+      <p>
+        Welcome to Orpcare Primary and Secondary School. We offer a value-based, child-centered curriculum that supports the holistic development of every child. Orpcare Secondary School is a reputable educational institution located in Kayonza District, Eastern Province, Rwanda. Established in 2008 by Gakwaya Leonard, the school began with humble beginnings, initially renting classrooms before constructing its own facilities. Over the years, it has expanded to offer education from nursery through to secondary levels, including day and boarding options.
+      </p>
+    </div>
+
+    <div class="image-section">
+      <img src="kid 5.jpg" alt="Kids Playing" />
+    </div>
+  </div>
+
+  <!-- Programs -->
+  <h2 style="text-align:center;">OUR PROGRAMS</h2>
+  <div class="container">
+    <div class="card">
+      <img src="primary school.jpeg" alt="Primary" />
+      <h3>Primary Section</h3>
+      <p>Strong foundation in academics and social skills.</p>
+    </div>
+    <div class="card">
+      <img src="ggg.png" alt="Secondary" />
+      <h3>Secondary Section</h3>
+      <p>O-Level and A-Level with comprehensive learning paths.</p>
+    </div>
+  </div>
+<h2 style="text-align:center; margin-top: 60px;">MEET OUR TEAM</h2>
+<div class="container" style="justify-content: center;">
+  <div class="card">
+    <img src="shema.png" alt="Olivia" style="width:150px; height:150px; object-fit:cover; border-radius:50%; margin:auto;">
+    <h3>shema,<br>Web Developer</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </div>
+  <div class="card">
+    <img src="thomas.png" alt="Jane" style="width:150px; height:150px; object-fit:cover; border-radius:50%; margin:auto;">
+    <h3>thomas,<br>Content Marketer</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </div>
+  <div class="card">
+    <img src="shema2.png" alt="Kate" style="width:150px; height:150px; object-fit:cover; border-radius:50%; margin:auto;">
+    <h3>Prince,<br>Social Media Specialist</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </div>
+</div>
+
+  <!-- Team -->
+<h2 style="text-align:center; margin-top: 60px;">LATEST NEWS</h2>
+<div class="container">
+  <div class="card">
+    <img src="Screenshot 2025-05-01 181106.png" alt="News Image 1">
+    <h3> Trip</h3>
+    <p>Learning goes beyond the classroom — and today is proof! As we set out on this exciting school trip, 
+      let’s explore, discover, and enjoy every moment together. May this journey be full of fun,
+       friendship, and unforgettable memories. Let’s represent Orpcare with pride, respect, 
+       and curiosity. Safe travels and happy adventures!.</p>
+  </div>
+  <div class="card">
+    <img src="orpcare library.jpg" alt="News Image 2">
+    <h3>New Library Block Inaugurated</h3>
+    <p>A modern library with digital learning facilities has been launched, enhancing access to academic resources for all students and staff.</p>
+  </div>
+  <div class="card">
+    <img src="ggg.png" alt="News Image 3">
+    <h3>Graduation ceremony</h3>
+    <p>Congratulations to our dear S3 students on your graduation! This moment marks a new beginning
+       filled with opportunity and growth. As you step into the next chapter, 
+       carry with you the lessons, discipline, and values learned at Orpcare. 
+       Keep dreaming big, working hard, and believing in your potential. The future is yours — go and shine!.</p>
+  </div>
+</div>
+
+
+  <!-- News -->
+  <h2 style="text-align:center;">Competitions</h2>
+  <div class="news-container">
+    <div class="card">
+      <img src="orpcare library.jpg" alt="News 1" />
+      <h3>Reading Competitions</h3>
+      <p>Our new library was inaugurated this month that there is reading Competitions.</p>
+    </div>
+    <div class="card">
+      <img src="orpcare sports.png" alt="News 2" />
+      <h3>Annual Sports Day</h3>
+      <p>Students participated in the annual sports competition.</p>
+    </div>
+    <div class="card">
+      <img src="lll.png" alt="News 3" />
+      <h3>Science experiment</h3>
+      <p>Innovative projects displayed by students.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="admission.html">Admissions</a></li>
+          <li><a href="academics.html">Academics</a></li>
+          <li><a href="student.html">Student Life</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>Contact Us</h3>
+        <p>Address: Kayonza District, Rwanda</p>
+        <p>Email: info@orpcare.edu.rw</p>
+        <p>Phone: +250 123 456 789</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Orpcare Secondary School. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+  const sliderTrack = document.getElementById("sliderTrack");
+  const totalSlides = document.querySelectorAll(".slide").length;
+  let currentIndex = 0;
+
+  function moveSlide(step) {
+    currentIndex = (currentIndex + step + totalSlides) % totalSlides;
+    updateSliderPosition();
+  }
+
+  function updateSliderPosition() {
+    sliderTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  // Auto Slide every 3 seconds
+  setInterval(() => {
+    moveSlide(1);
+  }, 3000);
+  function toggleMenu() {
+    const navMenu = document.getElementById("navMenu");
+    navMenu.classList.toggle("show");
+  }
+</script>
+
+</body>
+</html>

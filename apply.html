@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Application Form | Orpcare School</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    button {
+      background: gold;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+    .success {
+      color: green;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Student Application Form</h2>
+    <form id="applicationForm">
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" name="fullName" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required />
+
+      <label for="classLevel">Class Level</label>
+      <select id="classLevel" name="classLevel" required>
+        <option value="">-- Select Class --</option>
+        <option value="S1">S1</option>
+        <option value="S2">S2</option>
+        <option value="S3">S3</option>
+      </select>
+
+      <label for="reportCard">Upload Report Card</label>
+      <input type="file" id="reportCard" name="reportCard" required />
+
+      <button type="button" id="payBtn">Pay 5000 RWF</button>
+      <div id="paymentStatus" class="success"></div>
+
+      <button type="submit" id="submitBtn" disabled>Submit Application</button>
+    </form>
+  </div>
+
+  <script>
+    const payBtn = document.getElementById('payBtn');
+    const submitBtn = document.getElementById('submitBtn');
+    const paymentStatus = document.getElementById('paymentStatus');
+
+    payBtn.addEventListener('click', () => {
+      payBtn.disabled = true;
+      paymentStatus.textContent = 'Processing payment...';
+
+      setTimeout(() => {
+        paymentStatus.textContent = '✅ Payment successful! You may now submit your application.';
+        submitBtn.disabled = false;
+      }, 3000); // Simulate 3-second payment delay
+    });
+
+    document.getElementById('applicationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('🎉 Application submitted successfully!');
+      this.reset();
+      submitBtn.disabled = true;
+      payBtn.disabled = false;
+      paymentStatus.textContent = '';
+    });
+  </script>
+</body>
+</html>

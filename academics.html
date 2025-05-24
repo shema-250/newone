@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academics | Orpcare Secondary School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+
+ :root {
+  --primary-color: #ffd700;
+  --background-light: #ffffff;
+  --background-muted: #f9f9f9;
+  --text-dark: #000000; /* Changed from #1a1a1a */
+  --text-muted: #000000; /* Changed from #555 */
+}
+
+body {
+  color: var(--text-dark); /* Already set correctly */
+}
+h1, h2, h3, h4, h5, h6, p, blockquote, cite, button, a {
+  color: #000 !important;
+}
+
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  header {
+    background: linear-gradient(135deg, #f5f5f5, #ffffff);
+    padding: 80px 20px 60px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  header h1 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    color: var(--primary-color);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+    animation: slideDown 1.2s ease-out;
+  }
+
+  .controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  .controls button {
+    padding: 10px 20px;
+    font-weight: bold;
+    background: var(--primary-color);
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .controls button:hover {
+    background: #ffe800;
+  }
+
+  @keyframes slideDown {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    padding: 40px 16px;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .card:hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .card img {
+    width: 100%;
+    height: auto;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 0;
+    margin: 0;
+    display: block;
+  }
+
+  .card h3 {
+    padding: 16px;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: var(--primary-color);
+    font-weight: 700;
+  }
+
+  .testimonial {
+    max-width: 900px;
+    margin: 80px auto;
+    text-align: center;
+    padding: 40px;
+    background: var(--background-muted);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  .testimonial blockquote {
+    font-size: 1.3rem;
+    font-style: italic;
+    margin-bottom: 20px;
+    color: var(--text-muted);
+  }
+
+  .testimonial cite {
+    font-weight: bold;
+    color: var(--primary-color);
+  }
+
+  .video-section {
+    max-width: 900px;
+    margin: 80px auto;
+    text-align: center;
+  }
+
+  .video-section video {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  }
+
+  footer {
+    background: #f5f5f5;
+    color: #555;
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid #ddd;
+  }
+
+  footer h3 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  footer p, footer a {
+    font-size: 0.95rem;
+    color: #666;
+    text-decoration: none;
+  }
+
+  .back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    color: #000;
+    padding: 14px 16px;
+    font-size: 22px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: background 0.3s;
+    z-index: 1000;
+  }
+
+  .back-to-top:hover {
+    background: #ffe800;
+  }
+
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 2.2rem;
+    }
+
+    .testimonial {
+      margin: 40px 20px;
+      padding: 30px;
+    }
+
+    .video-section {
+      margin: 40px 20px;
+    }
+
+    .controls {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .card h3 {
+      font-size: 1rem;
+      padding: 12px;
+    }
+
+    .testimonial {
+      margin: 30px 10px;
+      padding: 20px;
+    }
+
+    .video-section {
+      margin: 30px 10px;
+    }
+
+    footer {
+      padding: 30px 10px;
+    }
+
+    .back-to-top {
+      padding: 10px 12px;
+      font-size: 18px;
+    }
+  }
+</style>
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Orpcare Academics</h1>
+    <div class="controls">
+      <button onclick="toggleLanguage()">Switch to Kinyarwanda</button>
+    </div>
+  </header>
+
+  <section class="grid">
+    <div class="card" data-aos="fade-up" data-aos-delay="100">
+      <img src="science laboratory.jpeg" alt="Science Lab">
+      <h3>Science Laboratory</h3>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="200">
+      <img src="computer lab.jpeg" alt="Computer Lab">
+      <h3>Computer Lab</h3>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="300">
+      <img src="library.jpeg" alt="Library">
+      <h3>Library</h3>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="400">
+      <img src="orpcare sports.png" alt="Sports Complex">
+      <h3>Sports Complex</h3>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="500">
+      <img src="download.jpg" alt="Debate Room">
+      <h3>Debate Room</h3>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="600">
+      <img src="Fuel your child's imagination and unleash their….jpg" alt="Art Studio">
+      <h3>Art Studio</h3>
+    </div>
+  </section>
+
+  <section class="testimonial" data-aos="zoom-in">
+    <blockquote>“Orpcare helped me dream bigger and learn smarter. The environment is truly inspiring.”</blockquote>
+    <cite>— Aime Uwase, Former Student</cite>
+  </section>
+
+  <section class="video-section" data-aos="fade-up">
+    <video src="ORPCARE DOCUMENTARY.mp4" controls poster="video-thumbnail.jpg"></video>
+  </section>
+
+  <footer>
+    <h3>Orpcare Secondary School</h3>
+    <p>📍 Kayonza, Rwanda | 📞 +250 791839258 | ✉️ shemaprince2008@gmail.com</p>
+    <p>&copy; <span id="year"></span> Orpcare School. All rights reserved.</p>
+  </footer>
+
+  <div class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</div>
+
+  <script>
+    AOS.init();
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function toggleLanguage() {
+      const texts = document.querySelectorAll('h1, h3, blockquote, cite');
+      texts.forEach(el => {
+        if (el.textContent.includes("Orpcare")) {
+          el.textContent = el.textContent.replace("Orpcare", "Ishuri rya Orpcare");
+        } else if (el.textContent.includes("Ishuri rya Orpcare")) {
+          el.textContent = el.textContent.replace("Ishuri rya Orpcare", "Orpcare");
+        }
+      });
+    }
+  </script>
+</body>
+</html>

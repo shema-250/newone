@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Orpcare Community</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --primary-color: #002d5a;
+      --accent-color: #ffc107;
+      --bg-color: #f8f9fa;
+      --card-bg: #ffffff;
+      --text-color: #343a40;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: 300;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 30px;
+      margin-bottom: 40px;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h3 {
+      margin: 0 0 10px;
+      color: var(--primary-color);
+      font-size: 20px;
+    }
+
+    .card-content p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 24px;
+      }
+      .section-title {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ORPCARE SECONDARY SCHOOL</h1>
+    <p>Engaging Our Community with Excellence and Purpose</p>
+  </header>
+
+  <section>
+    <h2 class="section-title">Parent & Community Engagement</h2>
+    <div class="card-grid">
+      <div class="card">
+        <img src="meeting.png" alt="Parent Engagement">
+        <div class="card-content">
+          <h3>Parent Meetings</h3>
+          <p>We host regular parent-teacher conferences to ensure clear communication and collaboration in student progress and well-being.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="ggg.png" alt="Community Day">
+        <div class="card-content">
+          <h3>Community Day</h3>
+          <p>An annual celebration that brings families, staff, and students together for fun, learning, and giving back to society.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Alumni & Outreach</h2>
+    <div class="card-grid">
+      <div class="card">
+        <img src="mentor.png" alt="Alumni">
+        <div class="card-content">
+          <h3>Alumni Mentorship</h3>
+          <p>Our alumni serve as mentors and role models, guiding current students in academic and career decisions.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="volunteer.png" alt="Community Outreach">
+        <div class="card-content">
+          <h3>volunteer projects</h3>
+          <p>Students engage in volunteer projects, visiting local communities, and contributing to environmental and health initiatives.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Student Life & Clubs</h2>
+    <div class="card-grid">
+      <div class="card">
+        <img src="leadership.png" alt="Student Leaders">
+        <div class="card-content">
+          <h3>Student Leadership</h3>
+          <p>The student council promotes leadership, responsibility, and democracy, helping students voice ideas and improve school life.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="lll.png" alt="Clubs and Societies">
+        <div class="card-content">
+          <h3>Clubs & Societies</h3>
+          <p>From ICT and Science to Music and Drama, students explore talents and build teamwork through exciting extracurricular clubs.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="dance.jpg" alt="Events">
+        <div class="card-content">
+          <h3>Special Events</h3>
+          <p>We host annual Cultural Day, Talent Shows, and Sports Competitions to showcase skills and foster unity and creativity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Orpcare Secondary School. Designed by Prince Company.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

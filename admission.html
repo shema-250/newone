@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Orpcare Admissions 2024-2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      color: #fff;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+      background-color: rgba(0,0,0,0.2);
+      backdrop-filter: blur(6px);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: url('child2.jpg') center/cover no-repeat;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .hero-content h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      opacity: 0.9;
+      animation: fadeInUp 1.5s ease forwards;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-weight: bold;
+      font-size: 1rem;
+      background-color: #ffc107;
+      color: #002d5a;
+      border-radius: 8px;
+      text-decoration: none;
+      animation: fadeInUp 2s ease forwards;
+    }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      padding: 25px;
+      text-align: center;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: #ffc107;
+    }
+
+    .card p {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    footer {
+      text-align: center;
+      background-color: rgba(0,0,0,0.2);
+      backdrop-filter: blur(6px);
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+
+    footer p {
+      margin: 8px 0;
+      font-size: 0.95rem;
+    }
+
+    .socials {
+      margin-top: 10px;
+    }
+
+    .socials span {
+      margin: 0 10px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero-content h2 {
+        font-size: 2rem;
+      }
+
+      .cta-btn {
+        font-size: 0.95rem;
+      }
+
+      .card p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Orpcare Primary & Secondary School</h1>
+    <p>📍 Kayonza, Rwanda | 📞 +250 791839258 | 📧 shemaprince2008@gmail.com</p>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Admissions Open 2024-2025</h2>
+      <p>Empowering Christian Leaders for Tomorrow</p>
+      <p>Enroll Now for a Future-Focused, Faith-Based Education</p>
+      <a href="#" class="cta-btn">Apply Today</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Why Choose Orpcare?</h2>
+    <div class="cards">
+      <div class="card"><h3>🎓 Academic Excellence</h3><p>We focus on individual learning needs and cultivate a love for learning with top-tier results.</p></div>
+      <div class="card"><h3>🌿 Holistic Development</h3><p>Our programs support emotional, physical, spiritual, and cognitive growth of each student.</p></div>
+      <div class="card"><h3>🧪 Modern Facilities</h3><p>State-of-the-art labs, digital classrooms, art, music, and computer labs.</p></div>
+      <div class="card"><h3>📚 Faith-Based Curriculum</h3><p>Every subject is rooted in Christian values, preparing students for a life of purpose.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Register With Us</h2>
+    <div style="text-align:center;">
+      <p>Scan the QR Code or Click the Button Below to Begin Your Journey with Orpcare</p>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yourweb.com" alt="QR Code" style="margin: 20px 0;" />
+      <br />
+      <a href="#" class="cta-btn">Start Admission</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> Orpcare Primary and Secondary School. All rights reserved.</p>
+    <p>Kayonza, Rwanda | Designed by Prince Company</p>
+    <div class="socials">
+      <span>📸 Instagram</span>
+      <span>📘 Facebook</span>
+      <span>🐦 Twitter</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

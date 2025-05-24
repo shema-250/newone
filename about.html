@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - Orpcare Secondary School</title>
+  <style>
+    :root {
+      --primary: #004aad;
+      --secondary: #ffbc00;
+      --bg-light: #ffffff;
+      --bg-dark: #1a1a1a;
+      --text-color: #333;
+      --footer-bg: #101820;
+      --footer-text: #cccccc;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    /* Hero Banner */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero h1,
+    .hero p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* About Content */
+    .about {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .about h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+
+    .about p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .about-img {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      display: block;
+      margin: 0 auto 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .grid {
+      display: grid;
+      gap: 30px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      margin-top: 30px;
+    }
+
+    .box {
+      background: #f0f4f8;
+      padding: 25px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .box:hover {
+      transform: translateY(-5px);
+    }
+
+    .box h3 {
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    /* Stats Section */
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 50px;
+      padding: 40px 20px;
+      background-color: #eef3fa;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat h4 {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 10px;
+      animation: fadeUp 1s ease-in;
+    }
+
+    .stat p {
+      font-size: 1rem;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Footer */
+    footer {
+      background: var(--footer-bg);
+      color: var(--footer-text);
+      padding: 40px 20px;
+      text-align: center;
+      animation: slideIn 1s ease-in-out;
+    }
+
+    footer h3 {
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    .footer-links {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--footer-text);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--secondary);
+    }
+
+    .social-icons {
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 1.3rem;
+      color: #aaa;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: white;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .about h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <h1>About Orpcare Secondary School</h1>
+    <p>Empowering students with knowledge, values, and vision since 2010.</p>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <img class="about-img" src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=1000&q=80" alt="Orpcare School Campus">
+
+    <h2>Our History</h2>
+    <p>
+      Orpcare Secondary School was founded in 2010 with a mission to provide high-quality education to the youth of our community. Over the years, we have grown from a modest beginning to a well-established institution known for academic excellence, discipline, and innovation. We take pride in nurturing responsible future leaders.
+    </p>
+
+    <h2>What We Believe</h2>
+    <div class="grid grid-3">
+      <div class="box">
+        <h3>Mission</h3>
+        <p>To foster learning that empowers every student to thrive in academics and life through critical thinking and compassion.</p>
+      </div>
+      <div class="box">
+        <h3>Vision</h3>
+        <p>To be a top-tier African school, recognized for producing responsible, innovative, and globally competent graduates.</p>
+      </div>
+      <div class="box">
+        <h3>Core Values</h3>
+        <p>Excellence, Respect, Integrity, Innovation, and Service define who we are and how we lead.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="stat">
+      <h4>500+</h4>
+      <p>Students</p>
+    </div>
+    <div class="stat">
+      <h4>35+</h4>
+      <p>Qualified Staff</p>
+    </div>
+    <div class="stat">
+      <h4>15 Years</h4>
+      <p>of Impactful Education</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <h3>Orpcare Secondary School</h3>
+    <p>&copy; 2025 All rights reserved</p>
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Admissions</a>
+      <a href="#">Gallery</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="social-icons">
+      <a href="#"><span>🔵</span></a>
+      <a href="#"><span>📸</span></a>
+      <a href="#"><span>🐦</span></a>
+    </div>
+  </footer>
+
+</body>
+</html>
